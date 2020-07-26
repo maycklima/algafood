@@ -14,8 +14,8 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
     EntityManager entityManager;
 
     @Override
-    public List<Cozinha> buscarTodas() {
-        return entityManager.createNativeQuery("fom Cozinha", Cozinha.class).getResultList();
+    public List<Cozinha> listar() {
+        return entityManager.createQuery("from Cozinha", Cozinha.class).getResultList();
     }
 
     @Override

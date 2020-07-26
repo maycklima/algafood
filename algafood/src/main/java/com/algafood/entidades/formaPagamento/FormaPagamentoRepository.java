@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface FormaPagamentoRepository {
 
-    List<FormaPagamento> listarTodas();
+    List<FormaPagamento> listar();
     FormaPagamento buscarPorId(Long id);
     FormaPagamento salvar(FormaPagamento formaPagamento);
     void remover (FormaPagamento formaPagamento);

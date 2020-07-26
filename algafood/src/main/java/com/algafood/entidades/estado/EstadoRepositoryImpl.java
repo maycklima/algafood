@@ -14,8 +14,8 @@ public class EstadoRepositoryImpl implements EstadoRepository {
     EntityManager entityManager;
 
     @Override
-    public List<Estado> listarTodos() {
-        return entityManager.createNativeQuery("from Estado", Estado.class).getResultList();
+    public List<Estado> listar() {
+        return entityManager.createQuery("from Estado", Estado.class).getResultList();
     }
 
     @Override

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CidadeRepository
 {
-    List<Cidade> listarTodas();
+    List<Cidade> listar();
     Cidade buscarPorId(Long id);
     Cidade salvar(Cidade cidade);
     void remover(Cidade cidade);

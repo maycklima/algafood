@@ -14,8 +14,8 @@ public class FormaPagamentoRepositoryImpl implements FormaPagamentoRepository {
     EntityManager entityManager;
 
     @Override
-    public List<FormaPagamento> listarTodas() {
-        return entityManager.createNativeQuery("from FormaPagamento", FormaPagamento.class).getResultList();
+    public List<FormaPagamento> listar() {
+        return entityManager.createQuery("from FormaPagamento", FormaPagamento.class).getResultList();
     }
 
     @Override

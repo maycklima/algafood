@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface EstadoRepository {
 
-    List<Estado> listarTodos();
+    List<Estado> listar();
     Estado buscarPorId(Long id);
     Estado salvar(Estado estado);
     void remover(Estado estado);

@@ -14,8 +14,8 @@ public class CidadeRepositoryImpl implements CidadeRepository {
     EntityManager entityManager;
 
     @Override
-    public List<Cidade> listarTodas() {
-        return entityManager.createNativeQuery("from Cidade", Cidade.class).getResultList();
+    public List<Cidade> listar() {
+        return entityManager.createQuery("from Cidade", Cidade.class).getResultList();
     }
 
     @Override
