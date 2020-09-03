@@ -1,9 +1,10 @@
 package com.algafood.controllers;
 
 import com.algafood.entidades.cozinha.Cozinha;
-import com.algafood.entidades.cozinha.CozinhaRepository;
+import com.algafood.entidades.cozinha.CozinhaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,15 +14,25 @@ import java.util.List;
 public class CozinhaController {
 
     @Autowired
-    CozinhaRepository cozinhaRepository;
+    CozinhaService cozinhaService;
 
     @GetMapping
     public List<Cozinha> listar(){
-        return cozinhaRepository.listar();
+        return cozinhaService.listar();
     }
-
+    
     @GetMapping("/{cozinhaId}")
     public Cozinha buscar(@PathVariable Long cozinhaId){
-       return cozinhaRepository.buscarPorId(cozinhaId);
+       return cozinhaService.buscarPorId(cozinhaId);
+    }
+
+    @PostMapping
+    public Cozinha salvar(@RequestBody Cozinha cozinha){
+        return cozinhaService.salvar(cozinha);
+    }
+
+    @DeleteMapping("/{cozinhaId}")
+    public void delete(@PathVariable Long cozinhaId){
+        cozinhaService.remover(cozinhaId);
     }
 }

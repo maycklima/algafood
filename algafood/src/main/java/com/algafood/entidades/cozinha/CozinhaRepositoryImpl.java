@@ -1,5 +1,8 @@
 package com.algafood.entidades.cozinha;
 
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -31,7 +34,13 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
 
     @Transactional
     @Override
-    public void remover(Cozinha cozinha) {
-        entityManager.remove(buscarPorId(cozinha.getId()));
+    public Cozinha remover(Cozinha cozinha) {
+        if(cozinha != null)
+        {
+           entityManager.remove(cozinha);
+           return  cozinha;
+        }else{
+            return cozinha;
+        }
     }
 }

@@ -4,9 +4,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface CozinhaRepository {
+public interface CozinhaService {
     List<Cozinha> listar();
     Cozinha buscarPorId(Long id);
     Cozinha salvar(Cozinha cozinha);
-    Cozinha remover(Cozinha cozinha);
+    void remover(Long id);
 }
